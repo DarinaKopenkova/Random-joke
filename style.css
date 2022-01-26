@@ -1,0 +1,81 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background: url(./teahub.io-pastel-wallpaper-tumblr-409335.png);
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 6px;
+    font-family: sans-serif;
+    width: 800px;
+    height: 40%;
+}
+
+.container__text {
+    padding: 30px 60px 10px 70px;
+}
+
+#title {
+    color: rgb(253, 123, 108);
+}
+
+#text-joke {
+    font-size: 25px;
+    color: rgb(73, 73, 75);
+    font-weight: 100;
+}
+
+.counter {
+    color: rgb(158, 160, 165);
+    display: flex;
+}
+
+button {
+    background-color: rgb(63, 192, 158);
+    color: white;
+    border-radius: 10px;
+    border: rgb(63, 192, 158);
+    font-size: 30px;
+    padding: 20px 30px;
+    margin-top: 20px;
+    margin-left: 570px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(158, 160, 165);
+    ;
+}
+
+
+#count-plus {
+    color: rgb(158, 160, 165);
+    border: none;
+    border-radius: 50%;
+    background: none;
+    font-size: 40px;
+}
+
+#count-plus:hover {
+    color: rgb(73, 73, 75);
+}
+
+#count-number {
+    padding-top: 13px;
+    font-size: 20px;
+    font-weight: 100;
+}
