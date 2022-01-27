@@ -28,29 +28,42 @@ const jokes = [
   "What did the yoga instructor say when her landlord tried to evict her? Namaste.",
 ];
 
-function initializeJoke() {
-  let jokeItem = localStorage.getItem("joke");
-  document.getElementById("text-joke").innerHTML = jokeItem;
-  let textJokes = document.getElementById("text-joke");
-  let button = document.getElementById("main-button");
+function getRandomJokeIndex() {
+  return Math.floor(Math.random() * jokes.length);
+}
 
-  button.onclick = function showRandomJoke() {
-    let jokeIndex = Math.floor(Math.random() * jokes.length);
-    textJokes.innerHTML = jokes[jokeIndex];
-    localStorage.setItem("joke", jokes[jokeIndex]);
-  };
+let jokeIndex = getRandomJokeIndex();
+
+function getStoredJokeCount() {
+  return localStorage.getItem(jokeIndex) || 0;
+}
+
+let jokeCount = getStoredJokeCount();
+
+function updateJokeElement() {
+  document.getElementById("text-joke").innerHTML = jokes[jokeIndex];
+}
+
+function updateCountElement() {
+  document.getElementById("count-number").innerHTML = jokeCount;
 }
 
 function initializeCounter() {
-  let count = Number(localStorage.getItem("count"));
-  document.getElementById("count-number").innerHTML = count;
-  let countPlusButton = document.getElementById("count-plus");
-  let countNumber = document.getElementById("count-number");
+  document.getElementById("count-plus").onclick = function () {
+    jokeCount++;
+    localStorage.setItem(jokeIndex, jokeCount);
+    updateCountElement();
+  };
+}
 
-  countPlusButton.onclick = function () {
-    count += 1;
-    countNumber.innerHTML = count;
-    localStorage.setItem("count", count);
+function initializeJoke() {
+  updateJokeElement();
+
+  document.getElementById("main-button").onclick = function showRandomJoke() {
+    jokeIndex = getRandomJokeIndex();
+    jokeCount = getStoredJokeCount();
+    updateJokeElement();
+    updateCountElement();
   };
 }
 
